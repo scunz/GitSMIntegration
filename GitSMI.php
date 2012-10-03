@@ -28,15 +28,15 @@ $projects = array(
 			'3rd/libgit2' => 'LibGit2'
 		)
 	),
-	'Heaven' => array(
+	'libHeaven' => array(
 		'Repo' => array(
 			'url' => 'git@github.com:macgitver/libHeaven.git',
 			'branch' => 'development'
 		),
 		'Builds' => array(
-			'Heaven_Qt4_GCC',
-			'Heaven_Qt4_Clang',
-			'Heaven_Qt5_GCC'
+			'libHeaven_Qt4_GCC',
+			'libHeaven_Qt4_Clang',
+			'libHeaven_Qt5_GCC'
 		)
 	),
 	'MacGitver' => array(
