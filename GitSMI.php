@@ -319,7 +319,11 @@ function cmdIntegrated() {
 		
 		$commitSubject .= " $lib";
 		$commitBody .= "Updating $lib\n    From: $fromSHA1\n    To:   $toSHA1\n\n";
-		
+	
+		$log = array();
+		exec( "cd $srctree/$path && git shortlog $fromSHA1..$toSHA1", $log );
+		$commitBody .= implode( "\n", $log );
+
 		exec( "cd $srctree && git add $path" );
 		$count++;
 	}
