@@ -16,7 +16,7 @@ $projects = array(
 	),
 	'libGitWrap' => array(
 		'Repo' => array(
-			'url' => 'git@github.com:macgitver/libGitWrap.git',
+			'url' => 'git@github.com:/macgitver/libGitWrap.git',
 			'branch' => 'development'
 		),
 		'Builds' => array(
@@ -30,7 +30,7 @@ $projects = array(
 	),
 	'libHeaven' => array(
 		'Repo' => array(
-			'url' => 'git@github.com:macgitver/libHeaven.git',
+			'url' => 'git@github.com:/macgitver/libHeaven.git',
 			'branch' => 'development'
 		),
 		'Builds' => array(
@@ -39,9 +39,18 @@ $projects = array(
 			'libHeaven_Qt5_GCC'
 		)
 	),
+	'libDiffViews' => array(
+		'Repo' => array(
+			'url' => 'git@github.com:/macgitver/libDiffViews.git',
+			'branch' => 'development'
+		),
+		'Builds' => array(
+			'libDiffViews_Qt4_GCC'
+		)
+	),
 	'MacGitver' => array(
 		'Repo' => array(
-			'url' => 'git@github.com:macgitver/macgitver.git',
+			'url' => 'git@github.com:/macgitver/macgitver.git',
 			'branch' => 'development'
 		),
 		'Builds' => array(
@@ -52,6 +61,19 @@ $projects = array(
 		'Submods' => array(
 			'3rd/libGitWrap' => 'libGitWrap',
 			'3rd/libHeaven' => 'libHeaven'
+		)
+	),
+	'DiffViewer' => array(
+		'Repo' => array(
+			'url' => 'git@github.com:/macgitver/DiffViewer.git',
+			'bracnh' => 'development'
+		),
+		'Builds' => array(
+			'DiffViewer_Qt4_GCC'
+		),
+		'Submods' => array(
+			'3rd/libHeaven' => 'libHeaven',
+			'3rd/libDiffViews' => 'libDiffViews'
 		)
 	)
 );
