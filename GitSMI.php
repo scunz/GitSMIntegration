@@ -308,7 +308,8 @@ function cmdIntegrate() {
 			$url = $projects[$lib]['Repo']['url'];
 			$cmd = "cd $srctree/$path && ".
 				   "git fetch $url && ".
-				   "git checkout -f $shaToIntegrate";
+				   "git checkout -f $shaToIntegrate && ".
+				   "git submodule update --init --recursive";
 
 			exec( $cmd );
 		}
