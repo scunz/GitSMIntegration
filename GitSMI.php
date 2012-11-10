@@ -355,7 +355,7 @@ function cmdIntegrated() {
 		return;
 	}
 
-	$commitBody = str_replace( "\\\"", "\"", $commitBody );
+	$commitBody = str_replace( "\"", "\\\"", $commitBody );
 
 	$cmd = "cd $srctree && "
 		 . "git commit "
