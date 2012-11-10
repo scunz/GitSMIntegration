@@ -361,6 +361,8 @@ function cmdIntegrated() {
 		 .		"--author=\"Babbelbox's Jenkins <Jenkins@babbelbox.org>\" && "
 		 . "git push origin development";
 
+echo $cmd;
+
 	exec( $cmd );
 }
 
