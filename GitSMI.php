@@ -9,6 +9,7 @@ $projects = array(
 			'url' => 'git://github.com/libgit2/libgit2.git',
 			'branch' => 'development'
 		),
+		'Ref' => 'libgit2/libgit2',
 		'Builds' => array(
 			'LibGit2_GCC',
 			'LibGit2_Clang'
@@ -19,6 +20,7 @@ $projects = array(
 			'url' => 'git@github.com:/macgitver/libGitWrap.git',
 			'branch' => 'development'
 		),
+		'Ref' => 'macgitver/libGitWrap',
 		'Builds' => array(
 			'libGitWrap_Qt4_GCC',
 			'libGitWrap_Qt4_Clang',
@@ -33,6 +35,7 @@ $projects = array(
 			'url' => 'git@github.com:/macgitver/libHeaven.git',
 			'branch' => 'development'
 		),
+		'Ref' => 'macgitver/libHeaven',
 		'Builds' => array(
 			'libHeaven_Qt4_GCC',
 			'libHeaven_Qt4_Clang',
@@ -44,6 +47,7 @@ $projects = array(
 			'url' => 'git@github.com:/macgitver/libDiffViews.git',
 			'branch' => 'development'
 		),
+		'Ref' => 'macgitver/libDiffViews',
 		'Builds' => array(
 			'libDiffViews_Qt4_GCC'
 		)
@@ -339,9 +343,10 @@ function cmdIntegrated() {
 	foreach( $todos as $path => $fromSHA1 ){
 		$toSHA1 = $subs[$path];
 		$lib = $prj['Submods'][$path];
+		$ref = $projects[ $prj['Submods'][$path] ][ 'Ref' ];
 		
 		$commitSubject .= " $lib";
-		$commitBody .= "Updating $lib\n    From: $fromSHA1\n    To:   $toSHA1\n\n";
+		$commitBody .= "Updating $lib\n    From: $ref@$fromSHA1\n    To:   $ref@$toSHA1\n\n";
 	
 		$log = array();
 		exec( "cd $srctree/$path && git shortlog $fromSHA1..$toSHA1", $log );
@@ -362,8 +367,6 @@ function cmdIntegrated() {
 		 .		"-m\"$commitSubject\n\n$commitBody\" "
 		 .		"--author=\"Babbelbox's Jenkins <Jenkins@babbelbox.org>\" && "
 		 . "git push origin development";
-
-echo $cmd;
 
 	exec( $cmd );
 }
