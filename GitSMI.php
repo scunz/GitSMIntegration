@@ -64,7 +64,8 @@ $projects = array(
 		),
 		'Submods' => array(
 			'3rd/libGitWrap' => 'libGitWrap',
-			'3rd/libHeaven' => 'libHeaven'
+			'3rd/libHeaven' => 'libHeaven',
+			'3rd/libDiffViews' => 'libDiffViews'
 		)
 	),
 	'DiffViewer' => array(
