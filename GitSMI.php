@@ -352,7 +352,7 @@ function cmdIntegrated() {
 		$ref = $projects[ $prj['Submods'][$path] ][ 'Ref' ];
 		
 		$commitSubject .= " $lib";
-		$commitBody .= "Updating $lib\n    From: $ref@$fromSHA1\n    To:   $ref@$toSHA1\n\n";
+		$commitBody .= "\nUpdating $lib\n    From: $ref@$fromSHA1\n    To:   $ref@$toSHA1\n\n";
 	
 		$log = array();
 		exec( "cd $srctree/$path && git shortlog $fromSHA1..$toSHA1", $log );
@@ -370,7 +370,7 @@ function cmdIntegrated() {
 
 	$cmd = "cd $srctree && "
 		 . "git commit "
-		 .		"-m\"$commitSubject\n\n$commitBody\" "
+		 .		"-m\"$commitSubject\n$commitBody\" "
 		 .		"--author=\"Babbelbox's Jenkins <Jenkins@babbelbox.org>\" && "
 		 . "git push origin development";
 
