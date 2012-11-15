@@ -304,19 +304,24 @@ function cmdIntegrate() {
 
 	foreach( $prj[ 'Submods' ] as $path => $lib ){
 		$lprj = $projects[ $lib ];
-		$firstBuild = $lprj['Builds'][0];		
-		$shaToIntegrate = $last_success[ $firstBuild ];		
-		if( $shaToIntegrate !== $subs[ $path ] ){
-			speak( "GitSMI: Will have to integrate $lib into $prjname" );
-			fputs( $fd, "${subs[$path]} $path\n" );
+		$firstBuild = $lprj['Builds'][0];
+		if( !isset( $last_success[ $firstBuild ] ) ) {
+			speak( "GitSMI: Don't know what to integrate for $lib. Skipping." );
+		}
+		else {
+			$shaToIntegrate = $last_success[ $firstBuild ];		
+			if( $shaToIntegrate !== $subs[ $path ] ){
+				speak( "GitSMI: Will have to integrate $lib into $prjname" );
+				fputs( $fd, "${subs[$path]} $path\n" );
 			
-			$url = $projects[$lib]['Repo']['url'];
-			$cmd = "cd $srctree/$path && ".
-				   "git fetch $url && ".
-				   "git checkout -f $shaToIntegrate && ".
-				   "git submodule update --init --recursive";
+				$url = $projects[$lib]['Repo']['url'];
+				$cmd = "cd $srctree/$path && ".
+					   "git fetch $url && ".
+					   "git checkout -f $shaToIntegrate && ".
+					   "git submodule update --init --recursive";
 
-			exec( $cmd );
+				exec( $cmd );
+			}
 		}
 	}
 	
