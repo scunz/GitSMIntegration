@@ -27,7 +27,7 @@ $projects = array(
 			'libGitWrap_Qt5_GCC'
 		),
 		'Submods' => array(
-			'3rd/libgit2' => 'LibGit2'
+			'libGitWrap/libgit2' => 'LibGit2'
 		)
 	),
 	'libHeaven' => array(
